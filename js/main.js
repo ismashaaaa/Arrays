@@ -91,35 +91,35 @@ let move;
 do
 {
 
-let total_chel=0;
-let total_komp=0;
+let total_human=0;
+let total_computer=0;
 
 
 let move = prompt(`Hi! Shall we play the order of throws? Press * to throw`);
 
-let res_chel, res_komp;
+let res_human, res_computer;
 function res()
 {
-    let kubik_1=Math.random()%6+1;
-    bros(kubik_1);
-    let kubik_2=Math.random()%6+1;
-    bros(kubik_2);
+    let cube_1=Math.random()%6+1;
+    bros(cube_1);
+    let cube_2=Math.random()%6+1;
+    bros(cube_2);
     let result;
-    result=kubik_1+kubik_2;
+    result=cube_1+cube_2;
     console.log(`Result: ${result}`)
     return result;
 }
 
 do
 {
-    res_chel=res();
-    console.log(`Your result: ${res_chel}`)
-    res_komp=res();
-    console.log(`My result: ${res_komp}`)
+    res_human=res();
+    console.log(`Your result: ${res_human}`)
+    res_computer=res();
+    console.log(`My result: ${res_computer}`)
 }
-while (res_chel==res_komp);
+while (res_human==res_computer);
 
-if (res_chel>res_komp)
+if (res_human>res_computer)
 {
     prompt("You start first: ")
     for (let i=1; i<=3; i++)
@@ -130,13 +130,13 @@ if (res_chel>res_komp)
         }
         while (move!='*');
         console.log("You:")
-        total_chel+=res();
+        total_human+=res();
         console.log("I am:")
-        total_komp+=res();
+        total_computer+=res();
         console.log("The next move:")
     }
-    console.log(`Your total result (the sum of points for 3 throws): ${total_chel}`);
-    console.log(`My total result (the sum of points for 3 throws): ${total_komp}`);
+    console.log(`Your total result (the sum of points for 3 throws): ${total_human}`);
+    console.log(`My total result (the sum of points for 3 throws): ${total_computer}`);
 }
 else
 {
@@ -144,39 +144,39 @@ else
     for (let i=1; i<=3; i++)
     {
         console.log("I am:")
-        total_komp+=res();
+        total_computer+=res();
         do
         {
            prompt("Press * to throw");
         }
         while (move!='*');
         console.log("You:")
-        total_chel+=res();
+        total_human+=res();
         console.log("The next move:")
     }
-    console.log(`Your total result (the sum of points for 3 throws): ${total_chel}`);
-    console.log(`My total result (the sum of points for 3 throws): ${total_komp}`);
+    console.log(`Your total result (the sum of points for 3 throws): ${total_human}`);
+    console.log(`My total result (the sum of points for 3 throws): ${total_computer}`);
 }
 
-if (total_chel===total_komp)
+if (total_human===total_computer)
 {
     console.log("Draw")
 }
 
-else if (total_chel>total_komp)
+else if (total_human>total_computer)
 {
     console.log("Congratulation! You have won!")
 }
-else if(total_chel<total_komp)
+else if(total_human<total_computer)
 {
     console.log("Sorry, but... I have won :(")
 }
 }
 while(move!='*');
 
-function bros(kubik)
+function bros(cube)
 {
-    switch (kubik)
+    switch (cube)
     {
     case 1:
         console.log(`***********`);
